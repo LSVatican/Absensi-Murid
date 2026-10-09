@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Absensi Murid Sekolah</title>
+  
+  <!-- Favicon dari gambar yang diupload di Spck Editor -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="card-container">
+    <header class="header">
+      <h1 class="title-rainbow">ABSENSI SISWA</h1>
+      <!-- Real-time Time & Date -->
+      <div id="clock-container">
+        <div id="time">00:00:00</div>
+        <div id="date">Loding tanggal...</div>
+      </div>
+    </header>
+
+    <!-- 
+      CATATAN UNTUK PENGIRIMAN EMAIL:
+      Ganti "YOUR_FORMSPREE_ENDPOINT" di bawah dengan link endpoint Formspree dari email guru.
+      Cara dapatnya:
+      1. Buka https://formspree.io
+      2. Daftar & buat Form baru dengan memasukkan Email Guru.
+      3. Salin URL Formspree-nya ke action="..." di bawah.
+    -->
+    <form action="https://formspree.io/f/mljgbyrg" method="POST" id="attendance-form">
+      
+      <!-- Input Kelas -->
+      <div class="form-group">
+        <label for="kelas">Kelas</label>
+        <input type="text" id="kelas" name="Kelas" placeholder="Contoh: X-E" required>
+      </div>
+
+      <!-- Input Nama Lengkap -->
+      <div class="form-group">
+        <label for="nama">Nama Lengkap</label>
+        <input type="text" id="nama" name="Nama_Lengkap" placeholder="Masukkan nama lengkap" required>
+      </div>
+
+      <!-- Input Nomor Absen -->
+      <div class="form-group">
+        <label for="absen">Nomor Absen</label>
+        <input type="number" id="absen" name="Nomor_Absen" placeholder="Contoh: 15" min="1" required>
+      </div>
+
+      <!-- Input Kehadiran -->
+      <div class="form-group">
+        <label for="kehadiran">Status Kehadiran</label>
+        <select id="kehadiran" name="Status_Kehadiran" required>
+          <option value="" disabled selected>-- Pilih Kehadiran --</option>
+          <option value="Hadir">Hadir</option>
+          <option value="Izin">Izin</option>
+          <option value="Sakit">Sakit</option>
+          <option value="Alpha / Alasan Lain">Alpha / Tanpa Keterangan</option>
+        </select>
+      </div>
+
+      <!-- Input Catatan Tambahan (Opsional) -->
+      <div class="form-group">
+        <label for="catatan">Keterangan / Alasan (Opsional)</label>
+        <textarea id="catatan" name="Keterangan" rows="3" placeholder="Tulis alasan jika Izin/Sakit/Alpha..."></textarea>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn-submit">Kirim Absensi</button>
+    </form>
+
+    <!-- Watermark -->
+    <footer class="footer">
+      <p class="watermark">Created by Daus Dopo</p>
+    </footer>
+  </div>
+
+  <!-- Custom JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

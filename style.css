@@ -1,0 +1,166 @@
+/* Reset & Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0f0c20;
+  padding: 20px;
+  color: #ffffff;
+}
+
+/* Container Glassmorphism & Rainbow Stroke Glow */
+.card-container {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 20px;
+  padding: 30px 25px;
+  position: relative;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  
+  /* Rainbow Stroke Effect */
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.card-container::before {
+  content: '';
+  position: absolute;
+  top: -2px; left: -2px; right: -2px; bottom: -2px;
+  background: linear-gradient(135deg, #ff007f, #7928ca, #020024, #00d4ff, #00ff87);
+  background-size: 300% 300%;
+  z-index: -1;
+  border-radius: 22px;
+  animation: rainbowGlow 6s ease infinite;
+}
+
+@keyframes rainbowGlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Header & Rainbow Title */
+.header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.title-rainbow {
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  background: linear-gradient(45deg, #ff7676, #f39c12, #f1c40f, #2ecc71, #3498db, #9b59b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+}
+
+/* Clock Styling */
+#clock-container {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+#time {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #00ffcc;
+  letter-spacing: 2px;
+}
+
+#date {
+  font-size: 0.85rem;
+  color: #d1d5db;
+  margin-top: 2px;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  color: #e2e8f0;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.form-group select option {
+  background-color: #1a1528;
+  color: #ffffff;
+}
+
+/* Input Focus with Rainbow Stroke Glow */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #00d4ff;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Submit Button */
+.btn-submit {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  cursor: pointer;
+  background: linear-gradient(90deg, #ff007f, #7928ca, #00d4ff);
+  background-size: 200% auto;
+  transition: 0.5s ease;
+  box-shadow: 0 4px 15px rgba(121, 40, 202, 0.4);
+  margin-top: 10px;
+}
+
+.btn-submit:hover {
+  background-position: right center;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 212, 255, 0.6);
+}
+
+/* Watermark Footer */
+.footer {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.watermark {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 1px;
+  font-weight: 500;
+}
